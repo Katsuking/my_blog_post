@@ -2,10 +2,11 @@ import fs from 'fs'
 import matter from 'gray-matter';
 import Link from 'next/link';
 import { PostMetadata } from './Postmetadata';
+import path from 'path';
 
 const getPostMetadata = (): PostMetadata[] => {
     // postsディレクトリからmarkdownの取得
-    const folder = "posts/";
+    const folder = path.resolve(process.cwd(), "posts")
     const files = fs.readdirSync(folder);
     // console.log(files); // npx ts-node --esm  GetPosts.ts
     const mkPosts = files.filter(file => file.endsWith(".md"));
