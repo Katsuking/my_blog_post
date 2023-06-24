@@ -13,7 +13,7 @@ const getPostMetadata = (): PostMetadata[] => {
 
     // markdownからmetadataの取得
     const posts = mkPosts.map(fileName => {
-        const fileContents = fs.readFileSync(`posts/${fileName}`, "utf-8");
+        const fileContents = fs.readFileSync(`${folder}/${fileName}`, "utf-8");
         const matterResult = matter(fileContents);
         // console.log(matterResult.data.title);
         return {
